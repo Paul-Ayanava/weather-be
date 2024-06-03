@@ -1,9 +1,17 @@
 class CacheService<T> {
     private cache: { [key: string]: { data: T; timestamp: number } } = {};
     private expiration: number;
+    private static instance: CacheService<any>;
 
     constructor(expiration: number) {
         this.expiration = expiration;
+    }
+
+    public static getInstance<T>(expiration: number): CacheService<T> {
+        if (!CacheService.instance) {
+            CacheService.instance = new CacheService<T>(expiration);
+        }
+        return CacheService.instance;
     }
 
     set(key: string, data: T): void {
