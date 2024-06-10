@@ -12,3 +12,12 @@ So if the open weather api fails and the data exists in the cache, it can retrie
 **Singleton design pattern** : It is used to create the cache service, so that there is only one instance of the cache service across the application. Even it gets initialized twice by mistake in future, it will consist of a single instance only which will make the application consistent.
 
 **Adapter design patern**: The adapter design pattern is used to convert the open weather api data as per our requirement. The openweather API data provides forecast for every 3 hours while our application requires daily forecast values. The adapter pattern ensures the data is transformed properly accordingly to our application.
+
+## CICD
+
+The application uses azure as cloud service provider. The application's docker image is pushed to azure container registry. The image is being used by azure app for containers. The github workflow has been to integrate CICD on the application.
+
+## API Key secret
+
+The api key has been kept as secret and the key is being reteived from github secrets during the build time of the application.
+In the application swagger has been used to document the api contracts.

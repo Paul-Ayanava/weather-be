@@ -114,6 +114,7 @@ router.get(
   async (req: Request, res: Response) => {
     const city = req.params.cityId;
     const mode = req.params.mode;
+    console.log(`Api fetched with city name ${city} in ${mode ? mode: 'online'} mode`)
     if (mode === "offline") {
       const cachedData = getCachedWeatherData(city);
       if (!cachedData) {

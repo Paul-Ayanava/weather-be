@@ -18,7 +18,8 @@ app.use(json());
 app.use(
   cors({
     origin: [
-      "http://localhost:3001"
+      "http://localhost:3001",
+      "https://weatherfe.azurewebsites.net"
     ]
   })
 )
@@ -32,6 +33,6 @@ app.all("*", async () => {
 });
 app.use(errorHandler);
 
-app.listen(3000, () => {
-  console.log("listening on port 3000!");
+app.listen(80, () => {
+  console.log("listening on port 80!");
 });
